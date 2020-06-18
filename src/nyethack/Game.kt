@@ -1,0 +1,5 @@
+package nyethack
+
+fun main(){
+
+}
