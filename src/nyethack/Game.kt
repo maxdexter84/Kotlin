@@ -13,10 +13,9 @@ val auraVisible = isBlessed && healthPonts > 50 || isImmortal
     val healthStatus = when(healthPonts) {
         100 -> " is in excellent condition!"
         in 90..99 -> " has a few scratches."
-        in 75..89 -> if (isBlessed) {
-            " has some minor wounds but is healing quite quickly!"
-        } else {
-            " has some minore wounds."
+        in 75..89 -> when (isBlessed) {
+            true ->  " has some minor wounds but is healing quite quickly!"
+            else ->" has some minore wounds."
         }
         in 15..74 -> " looks pretty hurt."
         else -> " is in awful condition!."
@@ -24,7 +23,7 @@ val auraVisible = isBlessed && healthPonts > 50 || isImmortal
     }
 
 //Состояние игрока
-    println(name + healthStatus)
+    println("$name $healthStatus") //Шаблонные строки
 
 //применение условного выражения when
     val race = "gnome"
@@ -35,5 +34,5 @@ val auraVisible = isBlessed && healthPonts > 50 || isImmortal
         "human" -> "Free People of the Rolling Hills"
         else -> "This race doesn`t exist"
     }
-    println(faction)
+    println("$race $faction")
 }
