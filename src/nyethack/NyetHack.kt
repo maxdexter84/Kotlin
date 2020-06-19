@@ -2,18 +2,13 @@ package nyethack
 
 fun main(){
     val name = "Madrigal"
-var healthPonts = 89
-val isBlessed = true
-val isImmortal = false
+    var healthPonts = 89
+    val isBlessed = true
+    val isImmortal = false
     val auraColor = auraColor(isBlessed, healthPonts, isImmortal)
-
-
-
-
     val healthStatus = formatHealthStatus(healthPonts, isBlessed)
-
     printPlayerStatus(auraColor, isBlessed, name, healthStatus)
-
+    castFireball()
 }
 
 private fun printPlayerStatus(auraColor: String, isBlessed: Boolean, name: String, healthStatus: String) {
@@ -52,7 +47,12 @@ private fun formatHealthStatus(healthPonts: Int, isBlessed: Boolean): String {
         }
         in 15..74 -> " looks pretty hurt."
         else -> " is in awful condition!."
-
     }
     return healthStatus
 }
+private fun castFireball(numFireballs:Int = 2) = println("A glass of Fireball springs into existence. (x$numFireballs)")
+/** функция может иметь значение по умолчанию,
+ и так как функция содержит одно выражение то можно
+не использовать фигурные скобки*/
+
+
