@@ -9,7 +9,7 @@ val auraVisible = isBlessed && healthPonts > 50 || isImmortal
 
 //Аура
     val  auraColor = if (auraVisible)"GREEN" else "NONE"
-    println(auraColor)
+    println("(Aura: $auraColor) " + "(Blessed: ${if (isBlessed)"YES" else "NO"})") //пример шаблонной строки
     val healthStatus = when(healthPonts) {
         100 -> " is in excellent condition!"
         in 90..99 -> " has a few scratches."
