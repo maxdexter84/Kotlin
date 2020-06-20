@@ -21,4 +21,10 @@ fun main() {
 
 
     println(playerName.reversed())
+
+   /**Анонимные функции*/
+    val num = "Mississippi".count() //функция count возвращает количество букв в слове, моно так же использовать length
+           /** с помощью анонимной функции можно вернуть количество конкретных букв в слове*/
+           val num2 = "Mississippi".count { letter -> letter == 's'}
+    print(num2)
 }

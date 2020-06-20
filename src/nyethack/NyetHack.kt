@@ -50,7 +50,18 @@ private fun formatHealthStatus(healthPonts: Int, isBlessed: Boolean): String {
     }
     return healthStatus
 }
-private fun castFireball(numFireballs:Int = 2) = println("A glass of Fireball springs into existence. (x$numFireballs)")
+private fun castFireball(numFireballs:Int = 2){
+   var playerState = when(numFireballs){
+          in 1..10 -> "Tipsy"
+          in 11..20 -> "Sloshed"
+          in 21..30 -> "Soused"
+          in 31..40 -> "Stewed"
+          in 41..50 -> "Toasted"
+          else -> "Toasted"
+      }
+    println("A glass of Fireball springs into existence. (x$numFireballs) player is $playerState.")
+}
+
 /** функция может иметь значение по умолчанию,
  и так как функция содержит одно выражение то можно
 не использовать фигурные скобки*/
