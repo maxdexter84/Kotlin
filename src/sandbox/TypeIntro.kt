@@ -26,5 +26,8 @@ fun main() {
     val num = "Mississippi".count() //функция count возвращает количество букв в слове, моно так же использовать length
            /** с помощью анонимной функции можно вернуть количество конкретных букв в слове*/
            val num2 = "Mississippi".count { letter -> letter == 's'}
-    print(num2)
+    println(num2)
+
+    val str2 = "Максим Сазонов".count { letter -> letter == 'с' }
+    println(str2)
 }

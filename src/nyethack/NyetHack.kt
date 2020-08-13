@@ -17,12 +17,9 @@ private fun printPlayerStatus(auraColor: String, isBlessed: Boolean, name: Strin
     println("$name $healthStatus") //Шаблонные строки
 }
 
-private fun auraColor(isBlessed: Boolean, healthPonts: Int, isImmortal: Boolean): String {
-    //Аура
-    val auraVisible = isBlessed && healthPonts > 50 || isImmortal
-    val auraColor = if (auraVisible) "GREEN" else "NONE"
-    return auraColor
-}
+private fun auraColor(isBlessed: Boolean, healthPonts: Int, isImmortal: Boolean): String =
+     if (isBlessed && healthPonts > 50 || isImmortal) "GREEN" else "NONE"
+
 
 private fun initRace() {
     //применение условного выражения when

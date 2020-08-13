@@ -1,6 +1,9 @@
-//fun main(){
-//    println({val currentYear = 2018
-//        "Welcome to SimVillage, Mayor!(copyright $currentYear)"
+import kotlin.test.todo
+
+//fun main() {
+//    println({
+//        val currentYear = 2018
+//        "Welcome to SimVillage, Mayor (copyright $currentYear)"
 //    }())
 //}
 /**Анонимная функция сохдается внутри фигурных скобок {}
@@ -12,18 +15,20 @@
  */
 
 //присваивание переменной анонимной функции
-//fun main(){
-//    val greetingFunction: ()-> String = {val currentYear = 2018
-//    "Welcome to SimVillage, Mayor! (copyright $currentYear)"}
-//
+//fun main() {
+//    val greetingFunction: ()-> String = {
+//        val currentYear = 2018
+//        "Welcome to SimVillage, Mayor (copyright $currentYear)"
+//    }
 //    println(greetingFunction())
 //}
 /**Анонимные функции так же как и именованные функции,могут принимать любое колличество аргументов.
  * */
-//fun main(){
-//    val greetingFunction:(String)-> String = {playerName -> val currentYear = 2018
-//    "Welcom to SimVillage, $playerName! (copyright $currentYear)"}
-//
+//fun main() {
+//    val greetingFunction: (name: String)-> String = {name -> // имя аргументу можно присвоить сразу после открывающийся фигурной скобки
+//        val currentYear = 2018                                // а можно сразу в круглыхскобках вместе с объявлением типа аргумента
+//        "Welcome to SimVillage, $name! (copyright $currentYear)"
+//    }
 //    println(greetingFunction("Guyal"))
 //}
 /** в анонимных функции, которая принимает ровно один аргумент, вместо определения имени параметра
@@ -39,11 +44,12 @@
 //}
 
 /**Анонимные функции могут принимать несколько именованых аргументов */
-//fun main(){
-//    val greetingFunction:(String , Int) -> String = {playerName, numBuildings -> val currentYear = 2018
+//fun main() {
+//    val greetingFunction: (String, Int) -> String = {playerName, numBuildings ->
+//        val currentYear = 2019
 //        println("Adding $numBuildings houses")
-//        "Welcome to SimVillage, $playerName!(copyright $currentYear)"}
-//
+//        "Welcom to SimVillage, $playerName! (copyright $currentYear)"
+//    }
 //    println(greetingFunction("Guyal",2))
 //}
 /**Автоматическое определение типов по отношению к функциональным типам отноиться точно так же,
@@ -54,12 +60,13 @@
 //}
 
 /**Или с параметрами*/
-//fun main(){
+//fun main() {
 //    val greetingFunction = { playerName: String, numBuildings: Int ->
 //        val currentYear = 2018
 //        println("Adding $numBuildings houses")
-//        "Welcome to SimVillage, $playerName!(copyright $currentYear)"}
-//  runSimulation("Guyal",greetingFunction)
+//        "Welcome to SimVillage, $playerName! (copyright $currentYear)"
+//    }
+//    runSimulation("Guyal",greetingFunction)
 //}
 
 /**Параметр функции может принимать аргументы любого типа , даже аргументы которые сами являются функциями*/
@@ -68,12 +75,25 @@
 //    println(greetingFunction(playerName,numBuildings))
 //}
 
+//fun main() {
+//    val nonameFunc:(name: String, age:Int) -> String = {name, age ->
+//        "My name is $name and my age is $age"
+//    }
+//    println(randomAge("Max",nonameFunc))
+//
+//
+//}
+//inline fun randomAge(name: String, nonameFunc:(String, Int)->String){
+//    val age = (5..45).random()
+//    println(nonameFunc("Max",age))
+//}
 /**Когда функция принимает другу функцию в качестве параметра , круглые скобки в качестве аргумента с лямбдой можно отбросить*/
 //fun main(){
 //    runSimulation("Guyal") { playerName: String, numBuildings: Int ->
 //        val currentYear = 2018
 //        println("Adding $numBuildings houses")
 //        "Welcome to SimVillage, $playerName!(copyright $currentYear)"}
+//
 //}
 //
 //fun runSimulation(playerName:String, greetingFunction:(String,Int)->String){
@@ -135,8 +155,10 @@ fun configureGreetingFunction(): (String) -> String {
         numBuildings += 1
         println("Adding $numBuildings $structureType")
         "Welcome to SimVillage, $playerName! (copyright $currentYear)"
-    }
+        }
 }
+
+
 
 
 
