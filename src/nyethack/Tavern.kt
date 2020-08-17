@@ -1,27 +1,34 @@
 package nyethack
-import kotlin.math.roundToInt
-const val TAVERN_NAME = "Taernyl's Folly"
-var playerGold = 10
-var playerSilver = 10
+    import kotlin.math.roundToInt
+    const val TAVERN_NAME = "Taernyl's Folly"
+    var playerGold = 10
+    var playerSilver = 10
+    val patronList = mutableListOf("Eli", "Mardock", "Sophi")
 fun main(){
+    patronList.remove("Eli")
+    patronList.add("Alex")
+    println(patronList)
+   //placeOrder("shandy,Dragon's Breath,5.91")
+    patronList += "Max"
+    patronList.forEach { patron -> placeOrder("shandy,Dragon's Breath,5.91", patron)}
+    //patronList.forEachIndexed { index, s -> println("$s have a number ${index + 1}")  }
 
-   placeOrder("shandy,Dragon's Breath,5.91")
 
 }
 
-fun placeOrder(menuData: String) {
+fun placeOrder(menuData: String, namePatron: String) {
     val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
     val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
-    println("Madrigal speaks with $tavernMaster about their order.")
+    println("$namePatron speaks with $tavernMaster about their order.")
     val (type, name, price) = menuData.split(',')
-    val message = "Madrigal buys a $name ($type) for $price."
+    val message = "$namePatron buys a $name ($type) for $price."
 
     println(message)
     performPurchase(price.toDouble())
     val phrase = if (name == "Dragon's Breath") {
-        "Madrigal exclaims ${toDragonSpeak("Ah, delicious $name!")}"
+        "$namePatron exclaims ${toDragonSpeak("Ah, delicious $name!")}"
     } else {
-        "Madrigal says: Thanks for the $name."
+        "$namePatron says: Thanks for the $name."
     }
     println(phrase.toUpperCase())
 }
