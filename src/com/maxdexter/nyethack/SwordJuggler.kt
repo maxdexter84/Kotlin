@@ -1,4 +1,4 @@
-package nyethack
+package com.maxdexter.nyethack
 
 import java.lang.IllegalStateException
 
